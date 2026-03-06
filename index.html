@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            background-color: #fce4ec;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .card:hover { transform: scale(1.05); }
+        h1 { color: #e91e63; margin-bottom: 10px; }
+        p { color: #880e4f; font-size: 1.2rem; }
+        .hidden-msg { display: none; margin-top: 20px; font-weight: bold; color: #ff4081; }
+    </style>
+</head>
+<body>
+
+    <div class="card" onclick="celebrate()">
+        <h1>🎁 Click to Open!</h1>
+        <p>A special surprise for you...</p>
+        <div id="message" class="hidden-msg">
+            HAPPY BIRTHDAY! 🎂✨<br>
+            Wishing you the best day ever!
+        </div>
+    </div>
+
+    <script>
+        function celebrate() {
+            // Display message
+            document.getElementById('message').style.display = 'block';
+            
+            // Confetti explosion
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#ff4081', '#ff80ab', '#ffffff']
+            });
+        }
+    </script>
+</body>
+</html>
